@@ -66,7 +66,7 @@ const Sidebar = () => {
       categoryName: "Explore",
       categoryItem: [
         {
-          title: "Treanding",
+          title: "Trending",
           url: "/home",
           icon: <BsFire size="1.4rem" color="white" />,
         },

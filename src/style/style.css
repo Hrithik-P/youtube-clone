@@ -52,7 +52,11 @@
   overflow-y: scroll;
 }
 .sidebar::-webkit-scrollbar {
-  display: none;
+  width: 0.8rem;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background: #444;
 }
 .sidebar-category {
   border-bottom: 1px solid #303136 !important;
