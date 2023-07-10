@@ -140,7 +140,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="col-2 sidebar">
+    <div className="col-2 sidebar p-0">
       {categories.map((category, index) => (
         <SidebarCategory key={index} categoryName={category.categoryName}>
           {category.categoryItem.map((item, index) => (

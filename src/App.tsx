@@ -10,16 +10,19 @@ function App() {
     <div className="App">
       <Header />
       <div
-        className="d-flex"
+        className="d-flex row"
         style={{
           marginTop: "8vh",
           padding: "0.5rem 2rem",
         }}
       >
         <Sidebar />
-        <Routes>
-          <Route index element={<Home />} />
-        </Routes>
+
+        <div className="col-10 p-0">
+          <Routes>
+            <Route index element={<Home />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );

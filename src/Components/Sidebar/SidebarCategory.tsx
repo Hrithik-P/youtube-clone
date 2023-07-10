@@ -6,7 +6,7 @@ interface SidebarCategoryProps {
 }
 const SidebarCategory = ({ categoryName, children }: SidebarCategoryProps) => {
   return (
-    <div className="sidebar-category col-10 p-3 ps-0">
+    <div className="sidebar-category col-8 p-3 ps-0">
       {categoryName && <h5>{categoryName}</h5>}
       <div>{children}</div>
     </div>

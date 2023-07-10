@@ -1,22 +1,60 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { suggestedConfig } from "./config";
 
-const initialState = {
-  suggestedVideos: [],
+export type SuggestedVideo = {
+  id: {
+    videoId: string;
+    kind: string;
+  };
+  snippet: {
+    publishedAt: string;
+    channelId: string;
+    title: string;
+    description: string;
+    channelTitle: string;
+    publishedTime: string;
+    thumbnails: {
+      standard: {
+        url: string;
+      };
+      medium: {
+        url: string;
+      };
+      maxres: {
+        url: string;
+      };
+    };
+  };
+};
+interface InitialState {
+  suggestedVideo: SuggestedVideo[];
+  loading: boolean;
+}
+
+const initialState: InitialState = {
+  suggestedVideo: [],
   loading: false,
 };
 
-const getSuggestedVideos = createAsyncThunk(
-  "posts/getPosts",
-  async (thunkAPI) => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts").then(
-      (data) => data.json()
-    );
+export const getSuggestedVideos = createAsyncThunk(
+  "home/getSuggestedVideos",
+  async () => {
+    const res = await axios
+      .get("https://youtube-v31.p.rapidapi.com/search", suggestedConfig)
+      .then((response) => {
+        return response.data.items;
+      })
+      .catch((error) => {
+        return error.message;
+      });
+
     return res;
   }
 );
 
 export const HomeSlice = createSlice({
-  name: "posts",
+  name: "home",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -26,7 +64,7 @@ export const HomeSlice = createSlice({
       })
       .addCase(getSuggestedVideos.fulfilled, (state, action) => {
         state.loading = false;
-        state.suggestedVideos = action.payload;
+        state.suggestedVideo = action.payload;
       })
       .addCase(getSuggestedVideos.rejected, (state, action) => {
         state.loading = false;

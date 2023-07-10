@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, CardImg } from "reactstrap";
+import { SuggestedVideo } from "../../Redux/HomeSlice";
+import TextTruncate from "react-text-truncate";
+import moment from "moment";
+interface SingleVideoProps {
+  video: SuggestedVideo;
+}
+const SingleVideo = ({ video }: SingleVideoProps) => {
+  useEffect(() => {}, []);
 
-const SingleVideo = () => {
   return (
-    <div className="col-3 ">
-      <Card className="my-2">
+    <div className="col-3">
+      <Card>
         <CardImg
           alt="Card image cap"
-          src="https://picsum.photos/900/180"
+          src={video.snippet.thumbnails.maxres?.url}
           style={{
             height: 202,
             objectFit: "cover",
@@ -20,7 +27,7 @@ const SingleVideo = () => {
         <div className="d-flex mt-2">
           <div>
             <img
-              src="https://picsum.photos/900/180"
+              src={video.snippet.thumbnails.maxres?.url}
               alt=""
               style={{
                 width: "2.5rem",
@@ -31,9 +38,18 @@ const SingleVideo = () => {
             />
           </div>
           <div className="mx-3">
-            <h3>video name</h3>
-            <h6>channel name</h6>
-            <span>viwes</span> . <span>Date</span>
+            <div className="text-white">
+              <TextTruncate
+                line={3}
+                element="h5"
+                truncateText="…"
+                text={video.snippet.title}
+              />
+            </div>
+            <span>{video.snippet.channelTitle}</span>
+            <br />
+            <span>viwes</span> .{" "}
+            <span>{moment(video.snippet.publishedAt).fromNow()}</span>
           </div>
         </div>
       </Card>

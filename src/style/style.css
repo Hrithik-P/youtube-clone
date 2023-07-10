@@ -75,8 +75,7 @@
 .row-video-container::-webkit-scrollbar {
   display: none;
 }
-
 .card {
   background: #0f0f0f !important;
-  color: #fff !important;
+  color: #444 !important;
 }

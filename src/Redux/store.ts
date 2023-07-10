@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { AnyAction, Dispatch, configureStore } from "@reduxjs/toolkit";
 import { homeReducer } from "./HomeSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-import thunk from "redux-thunk";
+import thunk, { ThunkDispatch } from "redux-thunk";
 
 const persistConfig = {
   key: "root",
@@ -18,3 +18,9 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = Dispatch<AnyAction> &
+  ThunkDispatch<RootState, null, AnyAction>;
