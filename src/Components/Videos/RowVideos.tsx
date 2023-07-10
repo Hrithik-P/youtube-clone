@@ -5,8 +5,15 @@ interface RowVideosProps {
 }
 const RowVideos = ({ videos }: RowVideosProps) => {
   return (
-    <div>
-      <SingleVideo />
+    <div className=" row-video-container ">
+      <div className="d-flex gap-3">
+        <SingleVideo />
+        <SingleVideo />
+        <SingleVideo />
+        <SingleVideo />
+        <SingleVideo />
+        <SingleVideo />
+      </div>
     </div>
   );
 };

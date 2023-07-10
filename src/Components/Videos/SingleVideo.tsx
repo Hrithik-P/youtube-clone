@@ -1,29 +1,41 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
+import { Card, CardImg } from "reactstrap";
 
 const SingleVideo = () => {
   return (
-    <div>
+    <div className="col-3 ">
       <Card className="my-2">
         <CardImg
           alt="Card image cap"
           src="https://picsum.photos/900/180"
           style={{
-            height: 180,
+            height: 202,
+            objectFit: "cover",
           }}
+          className="rounded-4"
           top
           width="100%"
         />
-        <CardBody>
-          <CardTitle tag="h5">Card Title</CardTitle>
-          <CardText>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
-          </CardText>
-          <CardText>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </CardText>
-        </CardBody>
+
+        <div className="d-flex mt-2">
+          <div>
+            <img
+              src="https://picsum.photos/900/180"
+              alt=""
+              style={{
+                width: "2.5rem",
+                height: "2.5rem",
+                objectFit: "cover",
+              }}
+              className="rounded-circle"
+            />
+          </div>
+          <div className="mx-3">
+            <h3>video name</h3>
+            <h6>channel name</h6>
+            <span>viwes</span> . <span>Date</span>
+          </div>
+        </div>
       </Card>
     </div>
   );
