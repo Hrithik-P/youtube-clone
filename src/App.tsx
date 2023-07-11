@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <div
-        className="d-flex row"
+        className="d-flex "
         style={{
           marginTop: "8vh",
           padding: "0.5rem 2rem",
@@ -18,7 +18,13 @@ function App() {
       >
         <Sidebar />
 
-        <div className="col-10 p-0">
+        <div
+          className=" p-2 content-scrollbar"
+          style={{
+            maxWidth: "85vw",
+            maxHeight: "100vh",
+          }}
+        >
           <Routes>
             <Route index element={<Home />} />
           </Routes>

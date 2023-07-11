@@ -13,17 +13,17 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="col-12">
-      <div className="row mb-3">
+    <>
+      <div className=" mb-3">
         <RowVideos />
       </div>
-      <div className="row mb-3">
+      <div className=" mb-3">
         <RowVideos />
       </div>
-      <div className="row mb-3">
+      <div className=" mb-3">
         <RowVideos />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -140,7 +140,13 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="col-2 sidebar p-0">
+    <div
+      className="sidebar  p-0 "
+      style={{
+        maxWidth: "15vw",
+        maxHeight: "100vh",
+      }}
+    >
       {categories.map((category, index) => (
         <SidebarCategory key={index} categoryName={category.categoryName}>
           {category.categoryItem.map((item, index) => (
